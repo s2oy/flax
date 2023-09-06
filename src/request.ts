@@ -189,7 +189,7 @@ export function request<TR, TE, TRR, TER>(
     const ct = axios.CancelToken.source();
 
     const url = ((u, query) => {
-      const qs = queryString.stringify(query);
+      const qs = queryString.stringify(query, {arrayFormat: 'comma'});
       return u + (qs ? (u.includes('?') ? '&' : '?') + qs : '');
     })(props.url, props.query || {});
 
